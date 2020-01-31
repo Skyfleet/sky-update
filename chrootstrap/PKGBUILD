@@ -1,0 +1,29 @@
+# Maintainer: Moses Narrow <moe_narrow@use.startmail.com>
+pkgname=chrootstrap
+pkgname1=chrootstrap
+pkgdesc="bootstrap an archlinux chroot & create a debian package from an arch package"
+pkgver=0.0.1
+pkgrel=1
+arch=('any')
+license=()
+makedepends=()
+source=(
+"chrootstrap-alarm.sh"
+"chrootstrap.sh"
+"create-deb-pkg.sh"
+)
+sha256sums=('067eb8fe07d0a2273aa72037e53eb32f0b84c3d13597f82040118a0c32262535'
+            '9c409463732d3f380d5262fda92c69cd14519e22b96d24da471707b796be809e'
+            'b0931a5180590bbbb35099c738e72af013224121ffdaf17800057180d517d3ec')
+
+package() {
+	mkdir -p ${pkgdir}/usr/lib/skycoin/chrootstrap
+	mkdir -p ${pkgdir}/usr/bin
+	rmextension=".sh"
+	chrootstrapscripts=$(ls *.sh)
+for i in $skyminerscripts ; do
+	install -Dm755 ${i} ${pkgdir}/usr/lib/skycoin/${pkgname1}/${i}
+	ln -rTsf ${pkgdir}/usr/lib/skycoin/${pkgname1}/${i} ${pkgdir}/usr/bin/${i//$rmextension}
+	chmod +x ${pkgdir}/usr/lib/skycoin/${pkgname1}/${i}
+done
+}

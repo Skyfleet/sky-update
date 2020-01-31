@@ -1,0 +1,21 @@
+# Maintainer: Moses Narrow <moe_narrow@use.startmail.com>
+pkgname=skyupdate
+pkgname1=skyupdate
+pkgdesc="skyupdate package FOR DEBIAN"
+pkgver=0.0.1
+pkgrel=1
+arch=('any')
+license=()
+makedepends=()
+source=(
+"skyupdate.tar.gz"
+)
+sha256sums=('77e4cf22ff2f425db736f72a4c03fcc2f87e6534864b5c007635d1cee2816473')
+
+package() {
+	mkdir -p ${pkgdir}/usr/lib/skycoin/$pkgname1
+	mkdir -p ${pkgdir}/usr/bin
+	install -Dm755 skyupdate.sh ${pkgdir}/usr/bin/${pkgname1}
+	chmod +x ${pkgdir}/usr/bin/${pkgname1}
+  install -Dm755 chrootstrap-0.0.1-1-any.pkg.tar.xz ${pkgdir}/usr/lib/skycoin/$pkgname1/
+}
