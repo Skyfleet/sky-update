@@ -1,0 +1,28 @@
+Origin: localhost
+Label: localhost
+Codename: stretch
+Date: Fri, 31 Jan 2020 18:55:52 UTC
+Architectures: amd64 arm64
+Components: main
+Description: lorem ipsum dolor sit amet!
+MD5Sum:
+ 70098d93c293d0eae9672b35d9c1f98f 388 main/binary-amd64/Packages
+ c1f9d2a50cc83af351f1c6aae9191b65 301 main/binary-amd64/Packages.gz
+ 47bb955287c85e018c3c3b96e4a6d154 112 main/binary-amd64/Release
+ 23c7b8cfda667edfab1129621ebdb2a7 388 main/binary-arm64/Packages
+ 0b9e49c515e1798ec278503ff2d6f08a 301 main/binary-arm64/Packages.gz
+ c9735cd5a098e65756704df2bd4d8465 112 main/binary-arm64/Release
+SHA1:
+ 05bcacd8cf3f8ca4341c246fae50b7cde3384326 388 main/binary-amd64/Packages
+ 5cb956b8ff9939757dbe25b5517219d8f17acd21 301 main/binary-amd64/Packages.gz
+ 3c5ffe239ebb25c3314966b612fdd9f0ad4a7a76 112 main/binary-amd64/Release
+ 80cbe922d88de8a68f5bf4d46754356e3db514e9 388 main/binary-arm64/Packages
+ 2dc5ad837c7a6927ca2b9edde1200501ddc3dda6 301 main/binary-arm64/Packages.gz
+ 3c89f8e8609b4ab0cf3ee9159c1da77fc4c8a000 112 main/binary-arm64/Release
+SHA256:
+ 53e29381a02eab3803745e10aa87eb3b93437905e3c8c707d0d5f01351c7ff33 388 main/binary-amd64/Packages
+ 2a5946ca27abc40150deb49306356083ff0644471174d814fa968b94fdb189d2 301 main/binary-amd64/Packages.gz
+ f39ebd378e7216bb6901696fbdb28ff92a38b693af8c51942398af38596d2b20 112 main/binary-amd64/Release
+ 98fb04f95d76e0b21a8f2dd23eb4bf86a42a99f153d553d27918d5ff36813b52 388 main/binary-arm64/Packages
+ 26df82f4f4790e09cd6727e57c01158c8e1906c91994e2fa525036d5f125b28a 301 main/binary-arm64/Packages.gz
+ e7e751c536e2f7fc3209b07624920cfc4fd2e2b7a3500985075fc71f30d748b4 112 main/binary-arm64/Release

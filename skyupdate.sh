@@ -3,15 +3,19 @@
 #/usr/lib/skycoin/skyupdate/chrootstrap.any.pkg.tar.xz
 #this script
 #/usr/bin/skyupdate
+#working dir
+#/root/skyupdate
+#local debian package repo hosted on LAN
+#/root/skyupdate/built
   if [[ $EUID -ne 0 ]]; then
      echo "You must be root to do this." 1>&2
      exit 100
   fi
 
-if [ -z $DEBIANCHECK ] && [ -z $ARMBIANCHECK ] && [ -z $RASPBIANCHECK ]; then
 DEBIANCHECK=$(cat /etc/os-release | grep Debian)
 ARMBIANCHECK=$(cat /etc/os-release | grep Armbian)
 RASPBIANCHECK=$(cat /etc/os-release | grep Raspbian)
+if [ -z $DEBIANCHECK ] && [ -z $ARMBIANCHECK ] && [ -z $RASPBIANCHECK ]; then
 echo "PLEASE ONLY RUN THIS ON DEBIAN BASED DISTROS"
 echo "YOUR SYSTEM:"
 cat /etc/os-release
@@ -82,4 +86,5 @@ if [[ $SYSTEMARCH == *"arm64"* ]]; then
   umount archarm/dev/
   umount archarm/run/
   dpkg -i archarm/deb/*.deb --force-overwrite
+
 fi

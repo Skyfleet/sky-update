@@ -7,15 +7,18 @@ pkgrel=1
 arch=('any')
 license=()
 makedepends=()
+#bsdtar -czvf skyupdate.tar.gz chrootstrap-0.0.1-1-any.pkg.tar.xz skyupdate.sh
 source=(
 "skyupdate.tar.gz"
 )
-sha256sums=('77e4cf22ff2f425db736f72a4c03fcc2f87e6534864b5c007635d1cee2816473')
+sha256sums=('c24555c7ec9852a9939a0475ca217a27969144f5dac49dc728b1ebed306d26e2')
 
 package() {
 	mkdir -p ${pkgdir}/usr/lib/skycoin/$pkgname1
 	mkdir -p ${pkgdir}/usr/bin
 	install -Dm755 skyupdate.sh ${pkgdir}/usr/bin/${pkgname1}
+	install -Dm755 create-deb-repo.sh ${pkgdir}/usr/bin/create-deb-repo
+
 	chmod +x ${pkgdir}/usr/bin/${pkgname1}
   install -Dm755 chrootstrap-0.0.1-1-any.pkg.tar.xz ${pkgdir}/usr/lib/skycoin/$pkgname1/
 }
