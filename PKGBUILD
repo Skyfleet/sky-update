@@ -27,7 +27,7 @@ systemarchitecture=$( uname -m )
 
 build() {
   if [ ! -f "*.pkg.tar.xz" ]; then
-    makepkg -cfp PKGBUILD.chrootstrap
+    makepkg -scfp PKGBUILD.chrootstrap
   fi
 
 if [[ "$systemarchitecture" == "x86_64" ]]; then

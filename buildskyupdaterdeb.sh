@@ -2,5 +2,5 @@
 set -ex
 updpkgsums PKGBUILD.chrootstrap
 updpkgsums
-makepkg -cf
+makepkg -scf
 ./create-deb-pkg.sh
