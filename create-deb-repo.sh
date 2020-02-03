@@ -1,15 +1,14 @@
 #!/bin/bash
 #make a debian package repo of all created packages and offer to serve it on the LAN
-set -e pipefail
+set -x
 #signwith=DE08F924EEE93832DABC642CA8DC761B1C0C0CFC
 default_debian_codename=(stretch) #e.g. jessie, stretch, buster, sid
 startingpoint=$(pwd)
 #determine system architecture
 mycarch=$(dpkg --print-architecture)
 #get debian version codename
-set +eo pipefail
 which_distribution=$(cat /etc/os-release | grep Debian)
-set -e pipefail
+
 
 if [ -f  /etc/os-release ]; then
 checkremove="VERSION_CODENAME="
@@ -27,12 +26,19 @@ if [ -z $debian_codename ]; then
 fi
 
 echo -e "making repo for debian $debian_codename $mycarch"
-if [ ! -d "built" ]; then
+repodirectory=$1
+if [ -f *'.deb' ]; then
+repodirectory=$(pwd)
+else
+if [ -z $repodirectory ]; then
+repodirectory="built"
+fi
+fi
+if [ ! -d $repodirectory ]; then
 echo "Error: can't find built packages dir in which to create a repo"
-echo "Please run create-deb-repo in the dir containing the built packages dir"
 exit
 else
-cd built
+cd $repodirectory
 fi
 if [ ! -d "conf" ]; then
 mkdir conf
@@ -43,15 +49,16 @@ echo "creating repo configuration file"
 echo "Origin: localhost" > conf/distributions
 echo "Label: localhost" >> conf/distributions
 echo "Codename: $debian_codename" >> conf/distributions
-echo -e "Architectures: $mycarch" >> conf/distributions
-#echo "Architectures: $architecture" >> ~/MY_PACKAGE_REPO/conf/distributions
+#echo -e "Architectures: $mycarch" >> conf/distributions
+echo -e "Architectures: arm64 amd64" >> conf/distributions
 echo "Components: main" >> conf/distributions
 echo "Description: lorem ipsum dolor sit amet!" >> conf/distributions
 if [ ! -z $signwith ]; then
 echo "SignWith: $signwith" >> conf/distributions
 fi
-echo "Creating debian pack repo"
+echo "Creating debian package repo"
 reprepro --basedir $(pwd) includedeb $debian_codename *.deb
+#share repo on LAN
 read -p "Make repo available on local network? (y/n)" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -59,7 +66,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   lan_port_serving_repo="8080"
     if [ -f /usr/bin/go ] || [ -f /bin/go ]; then
       echo "run the following on the nodes to configure the local packag repo"
-      echo "sudo add-apt-repository 'deb http://$lan_ip_address:$lan_port_serving_repo/ stretch main'"
+      echo "sudo add-apt-repository 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main'"
       echo -e "Serving on: http://$lan_ip_address:$lan_port_serving_repo/"
       echo "package main" > go_http_server.go
       echo "" >> go_http_server.go
@@ -83,7 +90,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   else
     if [ -f /usr/bin/python ] || [ -f /bin/python ] & [ ! -f /usr/bin/go ]; then
       echo "run the following on the nodes to configure the local packag repo"
-      echo "sudo add-apt-repository 'deb $lan_ip_address$lan_port_serving_repo/ stretch main'"
+      echo "sudo add-apt-repository 'deb [trusted=yes] $lan_ip_address$lan_port_serving_repo/ stretch main'"
       echo -e "Serving on: $lan_ip_address$lan_port_serving_repo/"
       #adjust the http server command depending on the available resources
       pythonversion=$(python --version)

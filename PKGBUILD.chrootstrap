@@ -1,0 +1,26 @@
+# Maintainer: Moses Narrow <moe_narrow@use.startmail.com>
+pkgname=chrootstrap
+pkgname1=chrootstrap
+pkgdesc="bootstrap an archlinux chroot & create a debian package from an arch package"
+pkgver=0.0.1
+pkgrel=1
+arch=('any')
+license=()
+makedepends=()
+source=(
+"chrootstrap-alarm.sh"
+"chrootstrap.sh"
+"create-deb-pkg.sh"
+)
+sha256sums=('5593d5d7d19be49cfb050270fb610d8edf28feab3fe06e4134c90ba9e2e6f98a'
+            '43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
+            'a9139cc6a42cedceaa1386dcb0b02230c449988e0aa9481dd5d594cfbb15f41d')
+
+package() {
+	mkdir -p ${pkgdir}/usr/lib/skycoin/chrootstrap
+	mkdir -p ${pkgdir}/usr/bin
+	install -Dm755 chrootstrap-alarm.sh ${pkgdir}/usr/bin/chrootstrap-alarm
+  install -Dm755 chrootstrap.sh ${pkgdir}/usr/bin/chrootstrap
+  install -Dm755 create-deb-pkg.sh ${pkgdir}/usr/bin/create-deb-pkg
+	chmod +x ${pkgdir}/usr/bin/*
+}

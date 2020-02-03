@@ -27,7 +27,7 @@ package=$1
 yay -S --noconfirm $package
 cd ~/.cache/yay/$package
 create-deb-pkg
-if [ -d ~/deb ]
+if [ -d ~/deb ]; then
 rm -rf ~/deb
 fi
 mkdir ~/deb
