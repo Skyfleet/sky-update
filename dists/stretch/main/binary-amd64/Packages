@@ -6,9 +6,9 @@ Maintainer: Moses Narrow
 Priority: optional
 Section: web
 Filename: pool/main/s/skyupdate/skyupdate_0.0.1-1_amd64.deb
-Size: 4049172
-SHA256: d8634a27121c8cf650d480504b8fb861923ef6f95a89790e85d988f086c2d050
-SHA1: 01ea762eedd0b570b75dc0fcfd92d30e66a55938
-MD5sum: 5176536dd6225a5134e9de1f6baf6576
+Size: 4049240
+SHA256: 3255ab9a3563ba4065b900970e00a3989201ee75af87dbdf7b434b5234079250
+SHA1: b3193934fba1ec05cec618b8692c9697506d4926
+MD5sum: 0a47e3ce3fd6ffc5f52e83e47091c7d1
 Description: lorem ipsum dolor sit amet!
 

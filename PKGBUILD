@@ -20,9 +20,9 @@ source=(
 sha256sums=('43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
             '5593d5d7d19be49cfb050270fb610d8edf28feab3fe06e4134c90ba9e2e6f98a'
             'a9139cc6a42cedceaa1386dcb0b02230c449988e0aa9481dd5d594cfbb15f41d'
-            '032a89359e9768330f8a2aee1a1597e4514e81b1147e4e937d7a8662f89744bc'
+            'a3edc259580bdee9e91342a4c54d0e539b9eee96e72397e9d86ae5d4c3eda78b'
             '0412fd57385e84285a8526e42fd7b1f9647235af98b5af34ab2c8e3ab63318a6'
-            'af84feeab52d039ae4c2757e5f2ba8005a95c8fb2218efebe9cdd3e9c3ae16d5')
+            '0371b3c1720a71fcf7bc45b757c5c99af4c14144c4eadd413aee34edc2cba3a7')
 systemarchitecture=$( uname -m )
 
 build() {

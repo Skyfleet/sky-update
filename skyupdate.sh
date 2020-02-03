@@ -62,7 +62,11 @@ fi
 if [[ $SYSTEMARCH == *"arm64"* ]]; then
   if [ ! -d squashfs-root ]; then
     mkdir squashfs-root
-    curl http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz | bsdtar -xpf -C squashfs-root
+    if [ ! -f ArchLinuxARM-aarch64-latest.tar.gz ]; then
+    #curl -L http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz -o ArchLinuxARM-aarch64-latest.tar.gz
+    wget  http://os.archlinuxarm.org/os/ArchLinuxARM-aarch64-latest.tar.gz
+  fi
+    bsdtar -xpf ArchLinuxARM-aarch64-latest.tar.gz -C squashfs-root
   fi
 fi
 cp /etc/resolv.conf squashfs-root/etc/resolv.conf
