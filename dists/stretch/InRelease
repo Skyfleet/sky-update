@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Origin: localhost
 Label: localhost
 Codename: stretch
@@ -26,3 +29,19 @@ SHA256:
  e49af3f4a95e39c2a625b363d3a5ee453cc716fe1ad23e914350a6e67cb140f9 454 main/binary-amd64/Packages
  f0bd9ef1b4f16487bb717dc4d897a65b2a1353c7dc73b1cf9ccc33e1ce43bb0f 348 main/binary-amd64/Packages.gz
  f39ebd378e7216bb6901696fbdb28ff92a38b693af8c51942398af38596d2b20 112 main/binary-amd64/Release
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEE3gj5JO7pODLavGQsqNx2GxwMDPwFAl43elYACgkQqNx2GxwM
+DPw+fQ//WvxYpHovBUYPt0euSIHtMD5rG4rzHsArf7oBJ0HTvouq8ExYejqQRlcO
+m9KTEjxStPLJHBKppX+sRz5pkIuSEp8a4sx1AhNN619YjDC+n0U+/CwXJcliziHt
+7reQTMoZ/T1UdaliN+jztZpBlXEfg6HftyGy9lIpCQZSJT8BRLsjYET/OOd6vNzd
+cEFC9FnDrszXAKgeIN4T/8xSZH1m5tXFLHYbFfCru9jRnpBsfcri6bw113/XwduE
+YrOTGB0SHQ2VOFGuYJdPGuDQy1+Gps0uVWzNrsfDkGZhn98ZQuXtSZCdZtseGdge
+xoQkUJ4iuQnaiuWTwton3Ec7CMzoG2hC/+DrWODB9mZwJ78SqYc25qFGRPCYI4Fw
+51aogkPYdnWdRe3k/Ci2K2Jo4R5+c0SiaIa6yyxCt5xaDU+lRbsAKypVpKsihbzC
+ZhEg0MEC8a3Ba4h9hLGpZhhbf4VmyPXrb1MdhuGaFoNtMnE7Rx6STCeJj3T8W40b
+wCu0HKBz3MeIB+qpOAPI8nXci4TAu2j3lYiVJ/1jlU2oPlbJhfyV2qBIKb4Uy8qZ
+Wcvpyx40bVkgcbvAUDCOfUoTq3Rcp6lCiBF6ScdR9czl1KviQd1cRv1vyo2rkz4B
+b/14slEHwPmVKrv7hNmLKVKVW8p/tMR1TP3SnLGiz1e4SDisXgU=
+=ScQA
+-----END PGP SIGNATURE-----
