@@ -65,8 +65,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   lan_ip_address="$(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1')"
   lan_port_serving_repo="8080"
     if [ -f /usr/bin/go ] || [ -f /bin/go ]; then
-      echo "run the following on the nodes to configure the local packag repo"
-      echo "sudo add-apt-repository 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main'"
+      echo "run the following AS ROOT on the nodes to configure the local packag repo"
+      echo "echo -e 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main' > /etc/apt/sources.list"
+      echo "apt-get update"
       echo -e "Serving on: http://$lan_ip_address:$lan_port_serving_repo/"
       echo "package main" > go_http_server.go
       echo "" >> go_http_server.go
@@ -89,9 +90,9 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
       go run go_http_server.go
   else
     if [ -f /usr/bin/python ] || [ -f /bin/python ] & [ ! -f /usr/bin/go ]; then
-      echo "run the following on the nodes to configure the local packag repo"
-      echo "sudo add-apt-repository 'deb [trusted=yes] $lan_ip_address$lan_port_serving_repo/ stretch main'"
-      echo -e "Serving on: $lan_ip_address$lan_port_serving_repo/"
+      echo "echo -e 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main' > /etc/apt/sources.list"
+      echo "apt-get update"
+      #echo -e "Serving on: $lan_ip_address$lan_port_serving_repo/"
       #adjust the http server command depending on the available resources
       pythonversion=$(python --version)
       pythonversion=${pythonversion#"Python "}
