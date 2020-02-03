@@ -1,6 +1,6 @@
 #!/bin/bash
 #make a debian package repo of all created packages and offer to serve it on the LAN
-set -x
+
 signwith=DE08F924EEE93832DABC642CA8DC761B1C0C0CFC
 default_debian_codename=(stretch) #e.g. jessie, stretch, buster, sid
 startingpoint=$(pwd)
