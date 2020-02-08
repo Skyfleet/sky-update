@@ -6,6 +6,7 @@ if [[ $EUID -eq 0 ]]; then
    echo "Please do not run this script as root." 1>&2
    exit 100
 fi
+githuburl=https://github.com/skyfleet/
 #make sure yay-git is installed
 if pacman -Qi yay-git > /dev/null ; then
 echo
@@ -25,7 +26,7 @@ fi
 if [ ! -z $1 ]; then
 package=$1
 if [ "$package" == "skyupdate" ]; then
-git clone https://github.com/Skyfleet/$package
+git clone $github$package
 cd $package
 makepkg -scf
 create-deb-pkg multiarch

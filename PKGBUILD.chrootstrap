@@ -12,7 +12,7 @@ source=(
 "chrootstrap.sh"
 "create-deb-pkg.sh"
 )
-sha256sums=('7ac80484ce6772aa5d00893a6ce311d35db27cb01a9f88c0c398ec2e1bca9519'
+sha256sums=('8c20b86660ec76f08f20e95f50f93f6d0f6c5b3f5f04eae950a682edcd1db474'
             '43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
             '230e3077036b731f6ca9c3bb11000158d8d3368ef4666281f0f5431cc7fceba0')
 

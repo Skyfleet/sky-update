@@ -7,7 +7,7 @@
 #/root/skyupdate
 #local debian package repo hosted on LAN
 #/root/skyupdate/squashfs-root/deb
-
+set -x
   if [[ $EUID -ne 0 ]]; then
      echo "You must be root to do this." 1>&2
      exit 100
