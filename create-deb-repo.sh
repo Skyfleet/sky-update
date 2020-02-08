@@ -1,10 +1,16 @@
 #!/bin/bash
 #make a debian package repo of all created packages and offer to serve it on the LAN
+#uncomment the following to sign the repository to update the github repo
 #signwith=DE08F924EEE93832DABC642CA8DC761B1C0C0CFC
 default_debian_codename=(stretch) #e.g. jessie, stretch, buster, sid
 startingpoint=$(pwd)
 #determine system architecture
-mycarch=$(dpkg --print-architecture)
+#mycarch=$(dpkg --print-architecture)
+packagearchitecture=$(dpkg --print-architecture)
+#uncomment to create the repo for github
+packagearchitecture="amd64 arm64 armhf armel i386 mips mipsel mips64el ppc64el riscv64 s390x"
+
+
 #get debian version codename
 which_distribution=$(cat /etc/os-release | grep Debian)
 
@@ -43,19 +49,27 @@ if [ ! -d "conf" ]; then
 mkdir conf
 fi
 
+#https://serverfault.com/questions/279153/why-does-reprepro-complain-about-the-all-architecture
+#If you specify your .deb (control file) as Architecture: all, then don't put anything into the reprepro distributions file
+#other than the arch's that you want it to get put into.
+#Architectures: amd64 arm64 armhf armel i386 mips mipsel mips64el ppc64el riscv64 s390x
+#The all packages are then available in all the architectures defined in conf/distributions
+
 echo "creating repo configuration file"
 #cd ~/MY_PACKAGE_REPO
 echo "Origin: localhost" > conf/distributions
 echo "Label: localhost" >> conf/distributions
 echo "Codename: $debian_codename" >> conf/distributions
+echo "Architectures: $packagearchitecture" >> conf/distributions
 #echo -e "Architectures: $mycarch" >> conf/distributions
-echo -e "Architectures: arm64 amd64" >> conf/distributions
+#echo -e "Architectures: all" >> conf/distributions
 echo "Components: main" >> conf/distributions
 echo "Description: lorem ipsum dolor sit amet!" >> conf/distributions
 if [ ! -z $signwith ]; then
 echo "SignWith: $signwith" >> conf/distributions
 fi
 echo "Creating debian package repo"
+set -e pipefail
 reprepro --basedir $(pwd) includedeb $debian_codename *.deb
 #share repo on LAN
 read -p "Make repo available on local network? (y/n)" -n 1 -r

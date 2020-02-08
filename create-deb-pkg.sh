@@ -1,10 +1,6 @@
 #!/bin/bash
 # make a debian package from an archlinux package
-set -exo pipefail
-#remove previous
-if [ -f *.deb ]; then
-  rm *.deb
-fi
+set -eo pipefail
 
 archpackage=$(ls *.pkg.tar.xz)
 packagename=${archpackage%%[[:digit:]]*}
@@ -15,8 +11,14 @@ packageversion=${packageversion#:*}
 packagename=${packagename%-*}
 packagerelease=${archpackage%-*}
 packagerelease=${packagerelease##*-}
+#create foreign architecture packages
+if [ "$1" == "multiarch" ]; then
+packagearchitecture=(arm64 armhf armel)
+debpkgdir="${packagename}-${packageversion}-${packagerelease}"
+else
 packagearchitecture=$(dpkg --print-architecture)
 debpkgdir="${packagename}-${packageversion}-${packagerelease}_${packagearchitecture}"
+fi
 
 if [ -d "$debpkgdir" ]; then
   rm -rf "$debpkgdir"
@@ -28,6 +30,7 @@ packagedependancies=$(cat "$debpkgdir/.PKGINFO" | grep -v makedepend | grep depe
 packagedependancies=${packagedependancies//depend =/}
 #CHANGE DEPENDANCY NAMES TO DEBIAN FORMAT MANUALLY AS NEEDED HERE#
 packagedependancies=${packagedependancies/go,/golang,}
+#END DEPENDANCY NAME CONVERSION SECTION#
 packagedependancies=${packagedependancies%,*}
 packagedependancies=${packagedependancies#* }
 

@@ -24,9 +24,16 @@ fi
 #limited to AUR packages for now
 if [ ! -z $1 ]; then
 package=$1
+if [ "$package" == "skyupdate" ]; then
+git clone https://github.com/Skyfleet/$package
+cd $package
+makepkg -scf
+create-deb-pkg multiarch
+else
 yay -S --noconfirm $package
 cd ~/.cache/yay/$package
 create-deb-pkg
+fi
 if [ -d ~/deb ]; then
 rm -rf ~/deb
 fi
