@@ -23,7 +23,7 @@ DEBIANCHECK=$(cat /etc/os-release | grep Debian)
 ARMBIANCHECK=$(cat /etc/os-release | grep Armbian)
 RASPBIANCHECK=$(cat /etc/os-release | grep Raspbian)
 ARCHCHECK=$(cat /etc/os-release | grep arch)
-if [ -z $DEBIANCHECK ] && [ -z $ARMBIANCHECK ] && [ -z $RASPBIANCHECK ]; then
+if [ -z "$DEBIANCHECK" ] && [ -z "$ARMBIANCHECK" ] && [ -z "$RASPBIANCHECK" ]; then
 echo "PLEASE ONLY RUN THIS ON DEBIAN BASED DISTROS"
 echo "YOUR SYSTEM:"
 cat /etc/os-release
@@ -71,7 +71,7 @@ SYSTEMARCH=$(dpkg --print-architecture)
 mkdir -p /root/skyupdate && cd /root/skyupdate
 fi
 #package cache sharing - prevent on foreign architectures
-if [ "$foreignchroot" != "yes" ] && [ ! -z $ARCHCHECK ]; then
+if [ "$foreignchroot" != "yes" ] && [ ! -z "$ARCHCHECK" ]; then
 #switch for later in the script
 availablehostpackagecache=yes
 #sync pacman
@@ -190,7 +190,8 @@ arch-chroot $chrootdir pacman -U /root/$pkgstoinstall --noconfirm --noconfirm
 echo
 fi
 if [ "$availablehostpackagecache" == "yes" ]; then
-cp -b /usr/lib/skycoin/skyupdate/mirrorlist-$SYSTEMARCH $chrootdir/etc/pacman.d/mirrorlist
+echo "Server = http://127.0.0.1:80" > $chrootdir/etc/pacman.d/mirrorlist
+cat /etc/pacman.d/mirrorlist >> $chrootdir/etc/pacman.d/mirrorlist
 #now we can update the chroot from the host system package cache
 #arch-chroot $chrootdir -c "[ ! -f /etc/pacman.d/mirrorlist.bak ] && cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak && { echo -e 'Server = http://127.0.0.1:80'; cat /etc/pacman.d/mirrorlist.bak; } > /etc/pacman.d/mirrorlist"
 #the above returns nothing so to keep the script from failing
@@ -220,8 +221,9 @@ fi
 #test for created package
 cd $chrootdir/deb
 createdpackage=$(ls $1*.deb)
-
-if [ -z $createdpackage ]]; then
+cd ..
+cd ..
+if [[ -z $createdpackage ]]; then
 ls $chrootdir/deb/*.deb
 echo -e "There have been errors, no package was created."
 exit
