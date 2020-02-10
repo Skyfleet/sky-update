@@ -34,8 +34,10 @@ packagedependancies=${packagedependancies//depend =/}
 packagedependancies=${packagedependancies/go,/golang,}
 #END DEPENDANCY NAME CONVERSION SECTION#
 packagedependancies=${packagedependancies%,*}
+if [ "$packagename" == "skyupdate" ]; then
+packagedependancies+=( 'bsdtar' )
+fi
 packagedependancies=${packagedependancies#* }
-
 
 mkdir -p $debpkgdir/DEBIAN
 echo "Package: $packagename" > $debpkgdir/DEBIAN/control

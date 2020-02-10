@@ -14,7 +14,7 @@ source=(
 "chrootstrap-alarm.sh"
 "create-deb-pkg.sh"
 "create-deb-repo.sh"
-#"pacman.conf"
+"pacman.conf"
 #'mirrorlist-amd64'
 #'mirrorlist-arm'
 "PKGBUILD.chrootstrap"
@@ -22,10 +22,11 @@ source=(
 )
 sha256sums=('43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
             '8c20b86660ec76f08f20e95f50f93f6d0f6c5b3f5f04eae950a682edcd1db474'
-            '230e3077036b731f6ca9c3bb11000158d8d3368ef4666281f0f5431cc7fceba0'
-            '719b37c4bb4b64fdca76376484d4fa20d5fccf4e92d193f9835039055b18f7c0'
-            '43be60c79c87745707cfdfa2cdeb8456747877a920674f4a249f00b2b2306988'
-            '8923b6c00b9c42fccd3043bce72ff9e1de406ea839bc022df51ea7756f967d3d')
+            'a63dab69b132fb194a207488dcf01b5a5db3a519a3e836e7e1731b480e0cb9cd'
+            'dd41b7d04e26c9205faeea310728c542e3364f2b54b116928b9e469f0a610193'
+            '1539212ca9792ec15371e76c0fd310afc34083bdd87595439e5ed6cd2d84074c'
+            '605eaf6f5a6863aa45687ed4698792fcbe56885091e491235630aa017fab8519'
+            'e9bed182dce043a5517cb3366804cabbac80af585065aa3aafdbd33d42f0c2a2')
 systemarchitecture=$( uname -m )
 
 build() {
@@ -55,7 +56,7 @@ fi
 	install -Dm755 ${srcdir}/create-deb-repo.sh ${pkgdir}/usr/bin/create-deb-repo
 	chmod +x ${pkgdir}/usr/bin/*
   install -Dm755 ${srcdir}/*.pkg.tar.xz ${pkgdir}/usr/lib/skycoin/${pkgname1}/
-  #install -Dm755 ${srcdir}/pacman.conf ${pkgdir}/usr/lib/skycoin/${pkgname1}/
+  install -Dm755 ${srcdir}/pacman.conf ${pkgdir}/usr/lib/skycoin/${pkgname1}/
   #install -Dm755 ${srcdir}/mirrorlist-amd64 ${pkgdir}/usr/lib/skycoin/${pkgname1}/
   #install -Dm755 ${srcdir}/mirrorlist-arm ${pkgdir}/usr/lib/skycoin/${pkgname1}/
 }

@@ -8,8 +8,9 @@ startingpoint=$(pwd)
 #mycarch=$(dpkg --print-architecture)
 packagearchitecture=$(dpkg --print-architecture)
 #uncomment to create the repo for github
+if [ ! -z $signwith ]; then
 packagearchitecture="amd64 arm64 armhf armel i386 mips mipsel mips64el ppc64el riscv64 s390x"
-
+fi
 
 #get debian version codename
 which_distribution=$(cat /etc/os-release | grep Debian)
@@ -71,7 +72,8 @@ fi
 echo "Creating debian package repo"
 set -e pipefail
 reprepro --basedir $(pwd) includedeb $debian_codename *.deb
-#share repo on LAN
+
+############# share repo on LAN ######################
 read -p "Make repo available on local network? (y/n)" -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -79,7 +81,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   lan_port_serving_repo="8080"
     if [ -f /usr/bin/go ] || [ -f /bin/go ]; then
       echo "run the following AS ROOT on the nodes to configure the local packag repo"
-      echo "echo -e 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main' > /etc/apt/sources.list"
+      echo "echo -e 'deb [trusted=yes] http://$lan_ip_address:$lan_port_serving_repo/ stretch main' >> /etc/apt/sources.list"
       echo "apt-get update"
       echo -e "Serving on: http://$lan_ip_address:$lan_port_serving_repo/"
       echo "package main" > go_http_server.go

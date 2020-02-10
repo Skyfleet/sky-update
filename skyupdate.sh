@@ -91,7 +91,8 @@ ARMV6GZ="ArchLinuxARM-armv6-latest.tar.gz"
 ARMV7GZ="ArchLinuxARM-armv7-latest.tar.gz"
 ARMV8GZ="ArchLinuxARM-armv8-latest.tar.gz"
 AARCH64GZ="ArchLinuxARM-aarch64-latest.tar.gz"
-
+ARCHBASEURL="http://mirrors.edge.kernel.org/archlinux/iso/2020.02.01/"
+X86ISO="archlinux-2020.02.01-x86_64.iso"
 
 ############### DOWNLOAD AND EXTRACT ROOT FILESYSTEM #####################
 #SYSTEMARCH uses the debian naming convention for architectures
@@ -100,12 +101,14 @@ if [[ $SYSTEMARCH == "amd64" ]]; then
     #unsquashfs makes the chrootdir
     #mkdir $chrootdir
 #obtain the latest rootFS sources
-MAGNETLINK=$(curl -s https://www.archlinux.org/download/ | sed -rn '/magnet/{s/.*(magnet:[^"]*).*/\1/g;p}')
-MAGNETLINK="${MAGNETLINK%%&*}"
+#MAGNETLINK=$(curl -s https://www.archlinux.org/download/ | sed -rn '/magnet/{s/.*(magnet:[^"]*).*/\1/g;p}')
+#MAGNETLINK="${MAGNETLINK%%&*}"
 #this will do nothing if the file in question already exists
-torrent $MAGNETLINK
+#torrent $MAGNETLINK
+##Torrent not working on debian
+wget $ARCHBASEURL$X86ISO
 if [ ! -d "arch" ]; then
-ISO="*.iso"
+ISO=$X86ISO
 DOWNLOADEDISO=( $ISO )
 if [ ! -d "archiso" ]; then
 mkdir -p archiso
@@ -181,6 +184,10 @@ fi
 if [ "$foreignchroot" != "yes" ]; then
 #The package is assumed to be installed if it already exists there
 if [ ! -f $chrootdir/root/*.pkg.tar.xz ]; then
+  #disable checkspace first
+if [ "$SYSTEMARCH" != "amd64" ]; then
+  cp -b /usr/lib/skycoin/skyupdate/pacman.conf $chrootdir/etc/
+fi
 cp -b /usr/lib/skycoin/skyupdate/*.pkg.tar.xz $chrootdir/root/
 cd $chrootdir/root/
 pkgstoinstall=$(ls *.pkg.tar.xz)
