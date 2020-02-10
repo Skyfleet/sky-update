@@ -1,7 +1,0 @@
-Origin: localhost
-Label: localhost
-Codename: stretch
-Architectures: arm64 amd64
-Components: main
-Description: lorem ipsum dolor sit amet!
-SignWith: DE08F924EEE93832DABC642CA8DC761B1C0C0CFC
