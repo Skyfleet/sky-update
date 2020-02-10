@@ -14,7 +14,7 @@ source=(
 )
 sha256sums=('8c20b86660ec76f08f20e95f50f93f6d0f6c5b3f5f04eae950a682edcd1db474'
             '43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
-            'a63dab69b132fb194a207488dcf01b5a5db3a519a3e836e7e1731b480e0cb9cd')
+            '05c8b564265815b076a38e22e8b14f1b8b619530f318b0322297304de62fdbe6')
 
 package() {
 	mkdir -p ${pkgdir}/usr/lib/skycoin/chrootstrap

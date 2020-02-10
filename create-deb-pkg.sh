@@ -34,8 +34,8 @@ packagedependancies=${packagedependancies//depend =/}
 packagedependancies=${packagedependancies/go,/golang,}
 #END DEPENDANCY NAME CONVERSION SECTION#
 packagedependancies=${packagedependancies%,*}
-if [ "$packagename" == "skyupdate" ]; then
-packagedependancies+=( 'bsdtar' )
+if [[ "$packagename" == *"skyupdate"* ]]; then
+packagedependancies="$packagedependancies, bsdtar"
 fi
 packagedependancies=${packagedependancies#* }
 
