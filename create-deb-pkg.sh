@@ -28,7 +28,9 @@ bsdtar -xpf $archpackage -C $debpkgdir
 set +e
 packagedependancies=$(cat "$debpkgdir/.PKGINFO" | grep -v makedepend | grep depend |  tr '\n' ',')
 packagedependancies=${packagedependancies//depend =/}
+####################################################################
 #CHANGE DEPENDANCY NAMES TO DEBIAN FORMAT MANUALLY AS NEEDED HERE#
+####################################################################
 packagedependancies=${packagedependancies/go,/golang,}
 #END DEPENDANCY NAME CONVERSION SECTION#
 packagedependancies=${packagedependancies%,*}
