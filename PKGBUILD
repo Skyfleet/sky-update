@@ -23,7 +23,7 @@ source=(
 sha256sums=('43b9667be5959c6f2567d8bdcfee83bbe9742ec7ab8599ff438427eff40a7c20'
             '8c20b86660ec76f08f20e95f50f93f6d0f6c5b3f5f04eae950a682edcd1db474'
             '05c8b564265815b076a38e22e8b14f1b8b619530f318b0322297304de62fdbe6'
-            'f3928bd2a97c778871a258043f9a85e6c2bb2a2ecece99e90458c824c324e660'
+            'b64528cd0510deb2be3768247c93c68364685ec40a5a127c4bb3838f7abc7ad5'
             '1539212ca9792ec15371e76c0fd310afc34083bdd87595439e5ed6cd2d84074c'
             '388f7666f93eda8e460a2862ff22aa07bba3b913740c98af852e4a565e4d6191'
             'e9bed182dce043a5517cb3366804cabbac80af585065aa3aafdbd33d42f0c2a2')
@@ -34,24 +34,24 @@ build() {
     makepkg -scfp PKGBUILD.chrootstrap
   fi
 
-if [[ "$systemarchitecture" == "x86_64" ]]; then
-export GOPATH=$(pwd)
-export GOBIN=$(pwd)
-if [ -f "../torrent" ]; then
-  ln ../torrent torrent
-fi
-if [ ! -f "torrent" ] && [ ! -f "../torrent" ]; then
-go get github.com/anacrolix/torrent/cmd/torrent
-fi
-fi
+#if [[ "$systemarchitecture" == "x86_64" ]]; then
+#export GOPATH=$(pwd)
+#export GOBIN=$(pwd)
+#if [ -f "../torrent" ]; then
+#  ln ../torrent torrent
+#fi
+#if [ ! -f "torrent" ] && [ ! -f "../torrent" ]; then
+#go get github.com/anacrolix/torrent/cmd/torrent
+#fi
+#fi
 }
 
 package() {
 	mkdir -p ${pkgdir}/usr/lib/skycoin/${pkgname1}
 	mkdir -p ${pkgdir}/usr/bin
-	if [ "$systemarchitecture" == "x86_64" ]; then
-	install -Dm755 ${srcdir}/torrent ${pkgdir}/usr/bin/torrent
-fi
+	#if [ "$systemarchitecture" == "x86_64" ]; then
+	#install -Dm755 ${srcdir}/torrent ${pkgdir}/usr/bin/torrent
+  #fi
 	install -Dm755 ${srcdir}/skyupdate.sh ${pkgdir}/usr/bin/${pkgname1}
 	install -Dm755 ${srcdir}/create-deb-repo.sh ${pkgdir}/usr/bin/create-deb-repo
 	chmod +x ${pkgdir}/usr/bin/*
