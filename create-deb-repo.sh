@@ -36,7 +36,7 @@ fi
 
 echo -e "making repo for debian $debian_codename $mycarch"
 repodirectory=$1
-if [ -f *'.deb' ]; then
+if [[ -f *'.deb' ]]; then
 repodirectory=$(pwd)
 else
 if [ -z $repodirectory ]; then
