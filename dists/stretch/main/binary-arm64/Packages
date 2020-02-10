@@ -1,0 +1,14 @@
+Package: skyupdate
+Version: 0.0.1-1
+Architecture: arm64
+Depends: golang, reprepro, arch-install-scripts, wget, bsdtar
+Maintainer: Moses Narrow
+Priority: optional
+Section: web
+Filename: pool/main/s/skyupdate/skyupdate_0.0.1-1_arm64.deb
+Size: 10912
+SHA256: 4432e967da5dcc7eaf231f612d11287c7feb79d7f1cce76d1af21a7d333ba962
+SHA1: 6f696f9f4886c1e29a0dbd9c7e1bdc64ae6deafe
+MD5sum: 663cb781acf06be775a8ec257f9f7b39
+Description: lorem ipsum dolor sit amet!
+
