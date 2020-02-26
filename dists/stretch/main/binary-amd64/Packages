@@ -19,9 +19,9 @@ Maintainer: Moses Narrow
 Priority: optional
 Section: web
 Filename: pool/main/s/skywire/skywire_20191118.788-1_amd64.deb
-Size: 20352228
-SHA256: 5c943fe9af47e128d6cd712c3cd973e869df7db14c4b21b857a51dcb70b26fc8
-SHA1: 91a513129d4a7e5507dec1eec16d66d6cb72d37a
-MD5sum: 30a86184453af3e9e6462e2dd8c06638
+Size: 20353692
+SHA256: 06a5f2a86ec3c3cf59340f858d682c36e5d7e76e87ca86e475e14049fbab7523
+SHA1: 5eec0ff056ff5b2bab53de83e733483e3d0662e9
+MD5sum: 9536720815d8f93f8ecbdaf73af28c32
 Description: lorem ipsum dolor sit amet!
 
