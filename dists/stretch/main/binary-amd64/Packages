@@ -12,3 +12,16 @@ SHA1: 919ee0498afa291027fa702ed09a39ba5b4d9e63
 MD5sum: e799fb6faa55349c8c7e6c6967e7bcce
 Description: lorem ipsum dolor sit amet!
 
+Package: skywire
+Version: 20191118.788-1
+Architecture: amd64
+Maintainer: Moses Narrow
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_20191118.788-1_amd64.deb
+Size: 20352228
+SHA256: 5c943fe9af47e128d6cd712c3cd973e869df7db14c4b21b857a51dcb70b26fc8
+SHA1: 91a513129d4a7e5507dec1eec16d66d6cb72d37a
+MD5sum: 30a86184453af3e9e6462e2dd8c06638
+Description: lorem ipsum dolor sit amet!
+
