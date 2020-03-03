@@ -2,7 +2,7 @@
 # make a debian package from an archlinux package
 set -eo pipefail
 
-archpackage=$(ls *.pkg.tar.xz)
+archpackage=$(ls *.pkg.tar.*)
 packagename=${archpackage%%[[:digit:]]*}
 packageversion=${archpackage%_*}
 packageversion=${packageversion#*$packagename}

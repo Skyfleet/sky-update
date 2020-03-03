@@ -183,14 +183,14 @@ fi
 #default chrooting
 if [ "$foreignchroot" != "yes" ]; then
 #The package is assumed to be installed if it already exists there
-if [ ! -f $chrootdir/root/*.pkg.tar.xz ]; then
+if [ ! -f $chrootdir/root/*.pkg.tar.* ]; then
   #disable checkspace first
 if [ "$SYSTEMARCH" != "amd64" ]; then
   cp -b /usr/lib/skycoin/skyupdate/pacman.conf $chrootdir/etc/
 fi
-cp -b /usr/lib/skycoin/skyupdate/*.pkg.tar.xz $chrootdir/root/
+cp -b /usr/lib/skycoin/skyupdate/*.pkg.tar.* $chrootdir/root/
 cd $chrootdir/root/
-pkgstoinstall=$(ls *.pkg.tar.xz)
+pkgstoinstall=$(ls *.pkg.tar.*)
 cd ..
 cd ..
 arch-chroot $chrootdir pacman -U /root/$pkgstoinstall --noconfirm --noconfirm
