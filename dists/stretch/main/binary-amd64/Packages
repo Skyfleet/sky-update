@@ -1,0 +1,13 @@
+Package: skywire
+Version: 0.2.0-1
+Architecture: amd64
+Maintainer: Moses Narrow
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_0.2.0-1_amd64.deb
+Size: 25410432
+SHA256: b06508594859d9f6801729809033eb51953ba4246edd45b5f82d0a45a4dfb61e
+SHA1: 245158d1f7e3648628450f671d58e206f481c664
+MD5sum: 8cbe4a1b55c392af788c1e226c9e0b2d
+Description: lorem ipsum dolor sit amet!
+

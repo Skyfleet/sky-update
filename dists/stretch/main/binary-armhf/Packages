@@ -1,0 +1,13 @@
+Package: skywire
+Version: 0.2.0-2
+Architecture: armhf
+Maintainer: Moses Narrow
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_0.2.0-2_armhf.deb
+Size: 21798960
+SHA256: 47941875d71bf5b78c2f1af405895ca8938219ff6f8b1d2d3f046c1cd715a739
+SHA1: 928a64021fdf2cdc2ad10ce0e5c9a4e26d54d5e0
+MD5sum: e8587e3d4e6a41f36f5e4c6cb3f342bb
+Description: lorem ipsum dolor sit amet!
+
