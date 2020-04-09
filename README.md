@@ -1,16 +1,30 @@
 [Sky-update](https://github.com/skyfleet/sky-update) will create [Skycoin](https://github.com/SkycoinProject) repo packages for debian / armbian / raspbian.
 
-(For your convenience, the repository hosted here also contains a recent built skywire package)
-
-Configure this repository in your apt sources:
+Configure this repository in your apt sources (as root or use sudo):
 ```
-sudo add-apt-repository 'deb http://skyfleet.github.io/sky-update stretch main'
-curl -L http://skyfleet.github.io/sky-update/KEY.asc | sudo apt-key add -
-sudo apt-get update
+add-apt-repository 'deb http://skyfleet.github.io/sky-update stretch main'
+curl -L http://skyfleet.github.io/sky-update/KEY.asc | apt-key add -
+apt-get update
 ```
 
-Install skywire:
+On RPi, `add-apt-repository` may not be available.
+Manually edit your `/etc/apt/sources.list` (as root or use sudo):
+```
+nano /etc/apt/sources.list
 ```
 
-sudo apt install skywire
+Add the following:
+```
+deb http://skyfleet.github.io/sky-update stretch main
+# deb-src http://skyfleet.github.io/sky-update stretch main
+```
+
+Resync the package database:
+```
+apt update
+```
+
+Install skywire (as root or use sudo):
+```
+apt install skywire
 ```
