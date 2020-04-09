@@ -29,4 +29,4 @@ Install skywire (as root or use sudo):
 apt install skywire
 ```
 
-Once installed, refer to the [skywire-mainnet readme](https://github.com/SkycoinProject/skywire-mainnet) for configuration steps.
+Once installed, refer to the [skywire-mainnet readme](https://github.com/SkycoinProject/skywire-mainnet#configure-skywire-visor) for configuration steps.
