@@ -8,7 +8,7 @@ apt-get update
 ```
 
 On RPi, `add-apt-repository` may not be available.
-Manually edit your `/etc/apt/sources.list` (as root or use sudo):
+You must Manually edit your `/etc/apt/sources.list` (as root or use sudo):
 ```
 nano /etc/apt/sources.list
 ```
@@ -29,4 +29,4 @@ Install skywire (as root or use sudo):
 apt install skywire
 ```
 
-Once installed, refer to the [skywire-mainnet readme](https://github.com/SkycoinProject/skywire-mainnet#configure-skywire-visor) for configuration steps.
+Once installed, refer to the [skywire debian package configuration](NOTE.md) for configuration steps.
