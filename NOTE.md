@@ -1,4 +1,4 @@
-##NOTES ON THE SKYWIRE DEBIAN PACKAGE
+## NOTES ON THE SKYWIRE DEBIAN PACKAGE
 updated 4-12-2020
 
 Skywire debian package additional required configuration steps:
@@ -16,7 +16,7 @@ skywire-cli visor gen-config -ro /etc/skywire-visor.json
 
 Refer to the [skywire-mainnet readme](https://github.com/SkycoinProject/skywire-mainnet#configure-skywire-visor) for setting the hypervisor key and IP address in the `/etc/skywire-visor.json` visor configuration file.
 
-##ADDITIONAL NOTES
+## ADDITIONAL NOTES
 
 The systemd service is called `skywire-startup.service`
 
@@ -45,7 +45,7 @@ Manually launch skywire-visor
 skywire-visor /etc/skywire-visor.json
 ```
 
-##RUN WITH NOHUP
+## RUN WITH NOHUP
 
 Launch skywire-hypervisor with nohup
 ```
