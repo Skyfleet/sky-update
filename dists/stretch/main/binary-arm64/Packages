@@ -1,0 +1,13 @@
+Package: skywire
+Version: 0.2.0-3
+Architecture: arm64
+Maintainer: Moses Narrow
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_0.2.0-3_arm64.deb
+Size: 30554908
+SHA256: e911fe3aafe3c9549bcb378f85a53b65286c76fa90b28fe9e93e8ca481e79196
+SHA1: e20fff002eca1ce9793fb60246ef0a206d9d1e53
+MD5sum: 9bca64514679bb6e0d7adcf325c338d3
+Description: lorem ipsum dolor sit amet!
+
