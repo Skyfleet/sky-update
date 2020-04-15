@@ -39,4 +39,14 @@ apt update
 apt install skywire
 ```
 
-Once installed, refer to the [skywire debian package notes](NOTE.md) for configuration steps.
+### 5) Run Skywire
+enable and start the systemd service
+```
+systemctl enable skywire-startup
+systemctl start skywire-startup
+```
+
+You can also manually start skywire to make sure everything is working correctly:
+```
+skywire-startup
+```
