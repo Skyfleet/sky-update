@@ -1,6 +1,6 @@
 ## IMAGE PREPARATION
 
-### Compatable Architectures
+### Compatible Architectures
 
 The .deb packages are built using the latest version binaries from [the release section of skywire-mainnet](https://github.com/SkycoinProject/skywire-mainnet/releases) which are currently available for amd64, arm64, and arnhf. However, the startup scripts and systemd services which exist in [skybian](https://github.com/skycoinproject/skybian) only work as-is for the following subset of architectures:
 
