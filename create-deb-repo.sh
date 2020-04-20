@@ -75,6 +75,7 @@ fi
 echo "Creating debian package repo"
 set -e pipefail
 reprepro --basedir $(pwd) includedeb $debian_codename *.deb
+#reprepro --basedir $(pwd) includedeb stretch *.deb
 
 ############# share repo on LAN ######################
 read -p "Make repo available on local network? (y/n)" -n 1 -r

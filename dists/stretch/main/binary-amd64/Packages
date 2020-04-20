@@ -1,14 +1,14 @@
 Package: skyimager
-Version: 0.0.1-2
+Version: 0.1.2-1
 Architecture: amd64
 Maintainer: Moses Narrow
 Priority: optional
 Section: web
-Filename: pool/main/s/skyimager/skyimager_0.0.1-2_amd64.deb
-Size: 4448552
-SHA256: 60359614787fd35bd5423c8210b313841fb26dfa5d21fe9271bacfed719a3d17
-SHA1: 665ea38d09159d2a2edbe359a07585d0658b034d
-MD5sum: 6a1df355f9a439f09b5f14b14725126d
+Filename: pool/main/s/skyimager/skyimager_0.1.2-1_amd64.deb
+Size: 4450904
+SHA256: 5dacc28b3f118908e38e2bb7c690376400630a92e6497740680a21e2b273b494
+SHA1: 5d74172920709d15c31a1ff495530e65fc266b6f
+MD5sum: 78f6634db620dfdf31829f5fa83397f2
 Description: lorem ipsum dolor sit amet!
 
 Package: skywire
