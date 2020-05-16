@@ -10,7 +10,7 @@ __Please make sure you have followed closely the instructions in [Image Preparat
 
 (as root or use sudo):
 ```
-add-apt-repository 'deb http://skyfleet.github.io/sky-update stretch main'
+add-apt-repository 'deb http://skyfleet.github.io/sky-update sid main'
 ```
 
 On RPi, `add-apt-repository` may not be available, so you must manually edit your `/etc/apt/sources.list` (as root or use sudo):
