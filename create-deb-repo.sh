@@ -5,7 +5,7 @@ if [[ "$2" == "sign" ]]; then
 signwith=DE08F924EEE93832DABC642CA8DC761B1C0C0CFC
 fi
 
-default_debian_codename=(stretch) #e.g. jessie, stretch, buster, sid
+default_debian_codename=(sid) #e.g. jessie, stretch, buster, sid
 startingpoint=$(pwd)
 #determine system architecture
 #mycarch=$(dpkg --print-architecture)

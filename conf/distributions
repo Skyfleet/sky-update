@@ -1,6 +1,6 @@
 Origin: localhost
 Label: localhost
-Codename: stretch
+Codename: sid
 Architectures: amd64 arm64 armhf armel i386 mips mipsel mips64el ppc64el riscv64 s390x
 Components: main
 Description: lorem ipsum dolor sit amet!

@@ -1,0 +1,40 @@
+Package: skybian
+Version: 0.1.2
+Architecture: arm64
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skybian/skybian_0.1.2_arm64.deb
+Size: 4100
+SHA256: 7c70fc87959740b514ea5db78cc81f3fdd9c357400ecd4b21fde30b2497d4cb4
+SHA1: 8ea5a8e2123e368d8b94f8ffea7cb8cd24e85253
+MD5sum: d23070a3fd6ed4013042408a6113d21d
+Description: Skybian image configuration
+
+Package: skybian-skywire
+Version: 0.1.2
+Architecture: arm64
+Depends: skywire
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skybian-skywire/skybian-skywire_0.1.2_arm64.deb
+Size: 10351288
+SHA256: 3fd22ea0ce162558a0df2182a5b470c6bde65ba890a2b091584778a8e674f2a8
+SHA1: f622e2e9d770fe72e10ee6644374dbffd92f95a9
+MD5sum: f4944b956083b0ddcc24b1f8abe592a1
+Description: Skywire helper scripts
+
+Package: skywire
+Version: 0.2.3
+Architecture: arm64
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_0.2.3_arm64.deb
+Size: 42100248
+SHA256: 5bbc1f81bace2df36cc18c8a4f9c53b7b927c170c36e60d7c30ca28722ec2ef9
+SHA1: e781c11226d2408f908b54680efb2fa7bc0b0125
+MD5sum: 88b5aff66dbd23d67521e25834d23810
+Description: Skywire Mainnet Node implementation
+

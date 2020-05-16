@@ -1,0 +1,5 @@
+Component: main
+Origin: localhost
+Label: localhost
+Architecture: riscv64
+Description: lorem ipsum dolor sit amet!

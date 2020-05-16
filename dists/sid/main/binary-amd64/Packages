@@ -1,0 +1,53 @@
+Package: skybian
+Version: 0.1.2
+Architecture: amd64
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skybian/skybian_0.1.2_amd64.deb
+Size: 4100
+SHA256: a5f9786740e6033dafd0359bb41f2d54278286de7ed35cf85eabbc93623c0812
+SHA1: c29cc81d94bdab4eb5be7af9de666147bd52fb46
+MD5sum: 6c46ad8d69da37dce401fc712885f4c6
+Description: Skybian image configuration
+
+Package: skybian-skywire
+Version: 0.1.2
+Architecture: amd64
+Depends: skywire
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skybian-skywire/skybian-skywire_0.1.2_amd64.deb
+Size: 11455020
+SHA256: e7c83e2cd1ea6f09b560c7b1a950b0626ea97b350b0f477c6d1fdda089d5c20d
+SHA1: 9ce3ec627137e5fcc3fd244e45c27fd5c26f32f3
+MD5sum: f69756639bdbde680ba94ea74e8554ae
+Description: Skywire helper scripts
+
+Package: skyimager
+Version: 0.1.2
+Architecture: amd64
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skyimager/skyimager_0.1.2_amd64.deb
+Size: 7496692
+SHA256: 0b06a3767ed60557aae23e07801edd15b9296d7393b76faac81f38e659b42963
+SHA1: 3fd585b0e4fcdc7b499301fece815d32baa656eb
+MD5sum: 01cccd915514ca3a4b4d9420973b8e78
+Description: Skybian image creation and configuration tool
+
+Package: skywire
+Version: 0.2.3
+Architecture: amd64
+Maintainer: SkycoinProject
+Priority: optional
+Section: web
+Filename: pool/main/s/skywire/skywire_0.2.3_amd64.deb
+Size: 45715736
+SHA256: 7e803a3e088e8cb0783fdaee0ce966d75a5f1f61e7621c63e790998626d34a35
+SHA1: 645826e0476e6392070f761b57769cbd04b2c49d
+MD5sum: 45d493a39c735f11ad7b0cf2a83aa854
+Description: Skywire Mainnet Node implementation
+
