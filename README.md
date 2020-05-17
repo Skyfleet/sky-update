@@ -107,6 +107,8 @@ Your configuration should be complete at this point. View the hypervisor's web i
 
 
 ## Additional Resources:
+
 https://github.com/asxtree/skybian/tree/skyraspbian
+
 https://github.com/ADepic/SkywirePiMainnet
 
