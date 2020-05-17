@@ -103,4 +103,10 @@ systemctl enable skywire-visor.service
 systemctl start skywire-visor.service
 ```
 
-Your configuration should be complete at this point. View the hyperviisor's web interface to make sure everything worked.
+Your configuration should be complete at this point. View the hypervisor's web interface to make sure everything worked.
+
+
+## Additional Resources:
+https://github.com/asxtree/skybian/tree/skyraspbian
+https://github.com/ADepic/SkywirePiMainnet
+
