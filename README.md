@@ -62,7 +62,7 @@ apt install skybian-skywire
 
 If you **have** configured your image with skyimager and followed every step on this page, you may run the following from the terminal __on each board__:
 ```
-skybian-firstrun
+systemctl start skybian-firstrun
 ```
 
 Your configuration should be complete at this point. View the hyperviisor's web interface to make sure everything worked.
@@ -71,7 +71,12 @@ Your configuration should be complete at this point. View the hyperviisor's web 
 
 If you **have not** configured your image with skyimager, run the following-
 
-First, on the hypervisor:
+First, on the hypervisor, we need to install a missing dependancy for repository creation:
+```
+apt install reprepro
+```
+
+Then, run the following command:
 ```
 skywire
 ```
