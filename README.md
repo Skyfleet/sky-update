@@ -85,6 +85,18 @@ And / Or
 skywire-hypervisor gen-config -ro /etc/skywire-hypervisor.json
 ```
 
+Be sure to copy the hypervisor public key to the appropriate place in the skywire-visor.json as stated in the readme for skywire-mainnet.
+
+To view the public key for the hypervisor:
+```
+cat /etc/skywire-hypervisor.json | grep "public_key" | awk '{print substr($2,2,66)}'
+```
+
+To parse the hypervisor key from /etc/skywire-hypervisor.json to /etc/skywire-visor.json (for running a hypervisor and a visor together)
+```
+hvisorkey=$(cat /etc/skywire-hypervisor.json | grep "public_key" | awk '{print substr($2,2,66)}') && sed -i 's/"hypervisors".*/"hypervisors": [{"public_key": "'"${hvisorkey}"'"}],/' /etc/skywire-visor.json
+```
+
 ### 5) Install skybian-skywire for autoconfiguration scripts:
 
 If you have completed step 4.1 **PLEASE DO NOT CONTINUE WITH THESE STEPS**
