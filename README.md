@@ -7,6 +7,8 @@ Note: an autoconfiguration method is now available which does not require images
 Please refer to [this note](/NOTE.md) for details regarding this.
 
 
+**ALL COMMANDS SHOULD BE RUN AS ROOT OR WITH SUDO**
+
 ## Using This Package Repository
 
 ### 1) Add this repository to your apt sources
@@ -24,8 +26,8 @@ nano /etc/apt/sources.list
 
 Add the following:
 ```
-deb http://skyfleet.github.io/sky-update sid main
-# deb-src http://skyfleet.github.io/sky-update sid main
+deb http://skyfleet.github.io/sky-update stretch main
+# deb-src http://skyfleet.github.io/sky-update stretch main
 ```
 
 ### 2) Add the repository signing key
@@ -49,34 +51,65 @@ apt update
 apt install skywire
 ```
 
+### 4.1) Manual Skywire configuration
+
+At the point you have completed step 4, skywire is installed.
+
+The remainder of the steps on this page cover __autoconfiguration__ which is sometimes prone to errors.
+
+If you have used skyimager, the configuration files should be present at /etc/skywire-visor.json or /etc/skywire-hypervisor.json depending on the image.
+
+Check which configuration files are present:
+```
+ls /etc/*.json
+```
+
+If present, enable and start the systemd service:
+
+```
+systemctl start skywire-visor
+```
+
+or
+```
+systemctl start skywire-hypervisor
+```
+
+If the configuration files are not present, you must first generate them:
+```
+skywire-cli visor gen-config -ro /etc/skywire-visor.json
+```
+
+And / Or
+```
+skywire-hypervisor gen-config -ro /etc/skywire-hypervisor.json
+```
+
 ### 5) Install skybian-skywire for autoconfiguration scripts:
+
+If you have completed step 4.1 **PLEASE DO NOT CONTINUE WITH THESE STEPS**
+
 ```
 apt install skybian-skywire
 ```
 
-
 **DIVERGENCE POINT!**
 **READ VERY CAREFULLY**
 
-### 6) Configure Skywire (images prepared with skyimager)
+### 6) Autoconfigure Skywire (images prepared with skyimager)
 
 If you **have** configured your image with skyimager and followed every step on this page, you may run the following from the terminal __on each board__:
 ```
-systemctl start skybian-firstrun
+skybian-firstrun
 ```
 
 Your configuration should be complete at this point. View the hyperviisor's web interface to make sure everything worked.
 
-### 6) Configure Skywire (images NOT prepared with skyimager)
+### 6) Configure Skywire (alternative method for images NOT prepared with skyimager)
 
 If you **have not** configured your image with skyimager, run the following-
 
-First, on the hypervisor, we need to install a missing dependancy for repository creation:
-```
-apt install reprepro
-```
-
-Then, run the following command:
+First, on the hypervisor:
 ```
 skywire
 ```
@@ -109,11 +142,3 @@ systemctl start skywire-visor.service
 ```
 
 Your configuration should be complete at this point. View the hypervisor's web interface to make sure everything worked.
-
-
-## Additional Resources:
-
-https://github.com/asxtree/skybian/tree/skyraspbian
-
-https://github.com/ADepic/SkywirePiMainnet
-
