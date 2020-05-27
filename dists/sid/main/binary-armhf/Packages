@@ -5,10 +5,10 @@ Maintainer: SkycoinProject
 Priority: optional
 Section: web
 Filename: pool/main/s/skybian/skybian_0.1.2_armhf.deb
-Size: 4100
-SHA256: be8a943bbfa3ebea6271950e893c14692961b834de4acb67c13010d07dd52e92
-SHA1: 1b5787e24e3f1f4418fbdf4b2703a5ac9f873aab
-MD5sum: 6c5fbc66c66cb8a1d120a1ef3344a660
+Size: 4076
+SHA256: 6940ba03aea9dd386e8eaab42e6240d4566d40af59e85e80b3135ffdcdc56873
+SHA1: 4329459a5a2f127f6d4dc794ebf55e4df9ec203a
+MD5sum: fb2d725a646733213d2e2b6f55aa5403
 Description: Skybian image configuration
 
 Package: skybian-skywire
@@ -19,10 +19,10 @@ Maintainer: SkycoinProject
 Priority: optional
 Section: web
 Filename: pool/main/s/skybian-skywire/skybian-skywire_0.1.2_armhf.deb
-Size: 10262628
-SHA256: 51cf297e156d91a0afdc9c4d5efdaedc9ed67821cf7b4eba8256f5d414ce36fc
-SHA1: 919fec685831132d456c2e2d51d42ff9464e72cf
-MD5sum: 43bc0ea66ab438b6e6bc82d32167ac91
+Size: 7641476
+SHA256: 9b0a0a5b8ddc5f884a5b680488d8d80999a633ee73a8020273add36f6edbf9a0
+SHA1: e5720df9584ee89523ae0302d3cd0aac9291f7e8
+MD5sum: e06df7196c519eaf1cf7108eff6adddb
 Description: Skywire helper scripts
 
 Package: skywire
