@@ -26,8 +26,8 @@ nano /etc/apt/sources.list
 
 Add the following:
 ```
-deb http://skyfleet.github.io/sky-update stretch main
-# deb-src http://skyfleet.github.io/sky-update stretch main
+deb http://skyfleet.github.io/sky-update sid main
+# deb-src http://skyfleet.github.io/sky-update sid main
 ```
 
 ### 2) Add the repository signing key
