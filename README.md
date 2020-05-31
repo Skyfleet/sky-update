@@ -186,5 +186,67 @@ apt upgrade
 
 if you have followed the steps on this page, your operating system and the skywire installation will be updated if any more recent packages are available than your currently installed ones.
 
-## 7) Build a newer package from source
+### 7) Build a newer package from source
 
+[Note, the following is the subject of a PR](https://github.com/SkycoinProject/skywire-mainnet/pull/366)
+
+Install these dependancies first:
+```
+sudo apt install golang wget
+```
+
+or, as root
+```
+apt install sudo golang wget
+```
+
+### 7.1)
+Clone the skywire-mainnet github repo
+```
+git clone https://github.com/skycoinproject/skywire-mainnet
+cd skywire-mainnet
+```
+(Optionally, switch the branch you're on at this point if you want.)
+
+### 7.2)
+replace the Makefile with one from Skyfleet which includes a package directive
+```
+rm Makefile
+wget https://github.com/Skyfleet/skywire-mainnet/raw/develop/Makefile
+```
+
+### 7.3)
+fetch the systemd services from SkycoinProject/Skybian (recommend use the develop branch)
+```
+cd static
+wget https://raw.githubusercontent.com/SkycoinProject/skybian/develop/static/skywire-visor.service
+wget https://github.com/SkycoinProject/skybian/blob/develop/static/skywire-hypervisor.service
+cd ..
+```
+
+### 7.4)
+In the following commands, please use the correct architecture for your system.
+To determine this, you can use the output of the command `dpkg --print-architecture`
+
+For rpi3 use `armhf`:
+```
+make package-armhf
+sudo dpkg -i *armhf.deb
+```
+
+for orange pi prime or pine64 (most 64 bit ARM boards / OSes), use `arm64`
+```
+make package-arm64
+sudo dpkg -i *arm64.deb
+```
+
+for a desktop or server, use `amd64`
+```
+make package-amd64
+sudo dpkg -i *amd64.deb
+```
+
+You may need to use the `--force-overwrite` flag if you try to install over Skybian's skywire installation.
+
+
+After you make the package you can serve it on the LAN to your other boards. Refer to [this script](/create-deb-repo.sh) or a more current version in [this repository](http://github.com/skyfleet/readonly-cache-deb) for how to do that.
