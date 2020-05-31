@@ -119,12 +119,12 @@ apt install skybian-skywire
 
 There are 2 sets of scripts in this package
 
-If you **have** configured your image with skyimager and followed every step on this page, **use step 6.1**
+If you **have** configured your image with skyimager, **use step 5.1**
 
-If you **have not** configured your image with skyimager, **use step 6.2**
+If you **have not** configured your image with skyimager, **use step 5.2**
 
 
-### 6.1) Autoconfigure Skywire (images prepared with skyimager)
+### 5.1) Autoconfigure Skywire (images prepared with skyimager)
 
 you may run the following from the terminal __on each board__:
 ```
@@ -135,7 +135,7 @@ skybian-firstrun
 
 View the hyperviisor's web interface to make sure everything worked.
 
-### 6.2) Configure Skywire (alternative method for images NOT prepared with skyimager)
+### 5.2) Configure Skywire (alternative method for images NOT prepared with skyimager)
 
 __disclaimer: not fully tested__
 
@@ -175,3 +175,16 @@ systemctl start skywire-visor.service
 **Your configuration should be complete at this point.**
 
 View the hypervisor's web interface to make sure everything worked.
+
+
+### 6) Updating your system and the skywire installation.
+(as root)
+```
+apt update
+apt upgrade
+```
+
+if you have followed the steps on this page, your operating system and the skywire installation will be updated if any more recent packages are available than your currently installed ones.
+
+## 7) Build a newer package from source
+
