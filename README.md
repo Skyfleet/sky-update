@@ -51,29 +51,23 @@ apt update
 apt install skywire
 ```
 
-### 4.1) Manual Skywire configuration
 
 At the point you have completed step 4, skywire is installed.
 
-The remainder of the steps on this page cover __autoconfiguration__ which is sometimes prone to errors.
+The remainder of the steps on this page cover __autoconfiguration__ which is sometimes prone to errors. Skip to **step 5** for autoconfiguration as it is done in skybian.
 
 If you have used skyimager, the configuration files should be present at /etc/skywire-visor.json or /etc/skywire-hypervisor.json depending on the image.
+
+
+
+### 4.1) Manual Skywire configuration
 
 Check which configuration files are present:
 ```
 ls /etc/*.json
 ```
 
-If present, enable and start the systemd service:
-
-```
-systemctl start skywire-visor
-```
-
-or
-```
-systemctl start skywire-hypervisor
-```
+### 4.2)
 
 If the configuration files are not present, you must first generate them:
 ```
@@ -97,9 +91,24 @@ To parse the hypervisor key from /etc/skywire-hypervisor.json to /etc/skywire-vi
 hvisorkey=$(cat /etc/skywire-hypervisor.json | grep "public_key" | awk '{print substr($2,2,66)}') && sed -i 's/"hypervisors".*/"hypervisors": [{"public_key": "'"${hvisorkey}"'"}],/' /etc/skywire-visor.json
 ```
 
+### 4.3)
+
+
+When the configuration file or files are present, enable and start the systemd service:
+
+```
+systemctl enable skywire-visor
+systemctl start skywire-visor
+```
+and/or
+```
+systemctl enable skywire-hypervisor
+systemctl start skywire-hypervisor
+```
+
 ### 5) Install skybian-skywire for autoconfiguration scripts:
 
-If you have completed step 4.1 **PLEASE DO NOT CONTINUE WITH THESE STEPS**
+If you have completed step 4.1 through 4.3 **PLEASE DO NOT CONTINUE WITH THESE STEPS**
 
 ```
 apt install skybian-skywire
@@ -108,18 +117,28 @@ apt install skybian-skywire
 **DIVERGENCE POINT!**
 **READ VERY CAREFULLY**
 
-### 6) Autoconfigure Skywire (images prepared with skyimager)
+There are 2 sets of scripts in this package
 
-If you **have** configured your image with skyimager and followed every step on this page, you may run the following from the terminal __on each board__:
+If you **have** configured your image with skyimager and followed every step on this page, **use step 6.1**
+
+If you **have not** configured your image with skyimager, **use step 6.2**
+
+
+### 6.1) Autoconfigure Skywire (images prepared with skyimager)
+
+you may run the following from the terminal __on each board__:
 ```
 skybian-firstrun
 ```
 
-Your configuration should be complete at this point. View the hyperviisor's web interface to make sure everything worked.
+**Your configuration should be complete at this point.**
 
-### 6) Configure Skywire (alternative method for images NOT prepared with skyimager)
+View the hyperviisor's web interface to make sure everything worked.
 
-If you **have not** configured your image with skyimager, run the following-
+### 6.2) Configure Skywire (alternative method for images NOT prepared with skyimager)
+
+__disclaimer: not fully tested__
+
 
 First, on the hypervisor:
 ```
@@ -153,4 +172,6 @@ systemctl enable skywire-visor.service
 systemctl start skywire-visor.service
 ```
 
-Your configuration should be complete at this point. View the hypervisor's web interface to make sure everything worked.
+**Your configuration should be complete at this point.**
+
+View the hypervisor's web interface to make sure everything worked.
