@@ -1,40 +1,14 @@
-Package: skybian
-Version: 0.1.2
-Architecture: armhf
-Maintainer: SkycoinProject
-Priority: optional
-Section: web
-Filename: pool/main/s/skybian/skybian_0.1.2_armhf.deb
-Size: 4076
-SHA256: 6940ba03aea9dd386e8eaab42e6240d4566d40af59e85e80b3135ffdcdc56873
-SHA1: 4329459a5a2f127f6d4dc794ebf55e4df9ec203a
-MD5sum: fb2d725a646733213d2e2b6f55aa5403
-Description: Skybian image configuration
-
-Package: skybian-skywire
-Version: 0.1.2
-Architecture: armhf
-Depends: skywire
-Maintainer: SkycoinProject
-Priority: optional
-Section: web
-Filename: pool/main/s/skybian-skywire/skybian-skywire_0.1.2_armhf.deb
-Size: 7641476
-SHA256: 9b0a0a5b8ddc5f884a5b680488d8d80999a633ee73a8020273add36f6edbf9a0
-SHA1: e5720df9584ee89523ae0302d3cd0aac9291f7e8
-MD5sum: e06df7196c519eaf1cf7108eff6adddb
-Description: Skywire helper scripts
-
 Package: skywire
-Version: 0.2.3
+Version: 0.2.3-2
 Architecture: armhf
-Maintainer: SkycoinProject
+Depends: reprepro
+Maintainer: Skyfleet
 Priority: optional
 Section: web
-Filename: pool/main/s/skywire/skywire_0.2.3_armhf.deb
-Size: 41969036
-SHA256: fbb16bd334a0993c062bfb3f01732c2638fb215e822d5dfe70a557ddf2854c3f
-SHA1: e4d357e449c4c384d0927ce2d5a76ba3766b7ae4
-MD5sum: e017b991c5bc75750ac4bed31839caaa
-Description: Skywire Mainnet Node implementation
+Filename: pool/main/s/skywire/skywire_0.2.3-2_armhf.deb
+Size: 25210584
+SHA256: 32e8142a1d57f9213a6fa3cbb2d09c0e22d0ec859a83ae54685bc9a28b8f69e8
+SHA1: 9487b81f025ac0a55373cf06375a786ef1240bce
+MD5sum: 594c8b5a9de1b6cf7038e39a9911d38d
+Description: Skywire: Building a New Internet. Skycoin.com
 
