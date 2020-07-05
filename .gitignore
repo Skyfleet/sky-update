@@ -1,0 +1,10 @@
+/skywire-bin/*.tar.gz
+/skywire-bin/pkg
+/skywire-bin/src
+/skywire-bin-aarch64/*.tar.gz
+/skywire-bin-aarch64/pkg
+/skywire-bin-aarch64/src
+/skywire-bin-armhf/*.tar.gz
+/skywire-bin-armhf/pkg
+/skywire-bin-armhf/src
+/*.deb
