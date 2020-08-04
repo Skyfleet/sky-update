@@ -11,7 +11,7 @@ _pkgver1='0.2.3'
 _tag_ver='v0.2.3'
 pkgver=${_pkgver1//-/.}
 _pkggopath="github.com/${_githuborg}/${_pkgname1}"
-pkgrel=2
+pkgrel=3
 arch=('any')
 url="https://${_pkggopath}"
 license=()
@@ -28,7 +28,7 @@ source=("${_release_url}-linux-${_pkgarch}.tar.gz"
 'generate.sh'
 'readonlycache.go')
 sha256sums=('9a41a13604dab1971e0c4a8200fbaa6d0bb77d8c19d6d6e5702bbd02e661078d'
-            'a09bef654583c2b3d1fbfdb0647e713dc5ede6bb5675293b51b7b3164ef863b8'
+            '4f0d45eee6050871875011618e0ba989d723c18108e8c996a76d47fba24ec2fb'
             '99a01866a21a02b7c972262cb054da718419d4e8d37dcd36cefbb5b17d877867'
             'd891297b28463e9ac8f765a95fc1d0488b51d01f47692a7aa62a3ac0baa443ac'
             'eafd78dd0cc9875eabac1017478d4f06361abf2021bd94ad052056284f7bb3d9'

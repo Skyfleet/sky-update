@@ -56,8 +56,29 @@ At the point you have completed step 4, skywire is installed.
 
 Recent packaging improvements should have autoconfigured the hypervisor and visor automatically on the same board. Check the ip address of the board you are connected to at port :8000 to view the hypervisor's web interface
 
-### 5) Connecting additional visors to the running hypervisor instance
+### 5) Connecting additional visors to the running hypervisor instance (manually)
 
+on the first board you installed skywire on:
+```
+cat /etc/skywire-visor.json
+```
+Copy where it says hypervisors according to the [skywire-mainnet readme](https://github.com/skycoinproject/skywire-mainnet)
+
+Note that you are copying a configuration from  visor to another one, so the data is already in the right format.
+
+On every additional skywire installation, disable and stop the skywire-hypervisor service
+```
+sudo systemctl disable --now skywire-hypervisor
+```
+
+open the visor configuration file and paste the text you copied from the first visor's configuration file.
+```
+nano /etct/skywire-visor.json
+```
+
+DO NOT USE THIS STEP 5, THESE CHANGES ARE STILL IN TESTING
+### 5) Connecting additional visors to the running hypervisor instance
+**This method is not currently supported, please don't use**
 (as root or use sudo):
 ```
 add-apt-repository 'deb http://<ip-of-first-board>:8079/ sid main'
