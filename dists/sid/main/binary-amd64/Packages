@@ -1,14 +1,14 @@
 Package: skywire
-Version: 0.2.3-3
+Version: 0.2.3-4
 Architecture: amd64
 Depends: reprepro
 Maintainer: Skyfleet
 Priority: optional
 Section: web
-Filename: pool/main/s/skywire/skywire_0.2.3-3_amd64.deb
-Size: 28048208
-SHA256: d48b8ef6a98a9ceb764f7c3c2fbcde73c2d0a13ce3df3f192a7517a1f55cd009
-SHA1: dc4dcd37b81b0ee0656b7c82586178d4b9394ccc
-MD5sum: d4df143de70413d43135b5c660a808c4
+Filename: pool/main/s/skywire/skywire_0.2.3-4_amd64.deb
+Size: 28049252
+SHA256: b49e903ada8259c2cc51b3f6ba6b7e0c7583c80a3a54280a3c1c54729c991891
+SHA1: 2c949445205199b03b511260618576b5f841797f
+MD5sum: 72775435ad5fdb3f2aa8ed95804d48f0
 Description: Skywire: Building a New Internet. Skycoin.com
 
