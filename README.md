@@ -51,63 +51,22 @@ apt update
 apt install skywire
 ```
 
-
 At the point you have completed step 4, skywire is installed.
 
-Recent packaging improvements should have autoconfigured the hypervisor and visor automatically on the same board. Check the ip address of the board you are connected to at port :8000 to view the hypervisor's web interface
+However, you must still create and configure the skywire-hypervisor and skywire-visor .json files
 
-### 5) Connecting additional visors to the running hypervisor instance (manually)
-
-on the first board you installed skywire on:
+These files **must** be at the following paths for the included skywire-visor and skywire-hypervisor systemd services to work.
 ```
-cat /etc/skywire-visor.json
-```
-Copy where it says hypervisors according to the [skywire-mainnet readme](https://github.com/skycoinproject/skywire-mainnet)
-
-Note that you are copying a configuration from  visor to another one, so the data is already in the right format.
-
-On every additional skywire installation, disable and stop the skywire-hypervisor service
-```
-sudo systemctl disable --now skywire-hypervisor
+/etc/skywire-hypervisor.json
+/etc/skywire-visor.json
 ```
 
-open the visor configuration file and paste the text you copied from the first visor's configuration file.
-```
-nano /etct/skywire-visor.json
-```
+Please follow the documentation [in the readme of skywire-mainnet](https://github.com/skycoinproject/skywire)
+or ask in [the skywire telegram cgannel](t.me/skywire)
 
-DO NOT USE THIS STEP 5, THESE CHANGES ARE STILL IN TESTING
-### 5) Connecting additional visors to the running hypervisor instance
-**This method is not currently supported, please don't use**
-(as root or use sudo):
-```
-add-apt-repository 'deb http://<ip-of-first-board>:8079/ sid main'
-```
+When you have completed the configuration, start the hypervisor and/or visor systemd service, then view the hypervisor's web interface to make sure everything worked.
 
-If `add-apt-repository` is not be available; `apt install software-properties-common`
-or manually edit your `/etc/apt/sources.list` (as root or use sudo):
-```
-nano /etc/apt/sources.list
-```
-
-Add the following:
-```
-deb http://<ip-of-first-board>:8079/ sid main
-#deb http://<ip-of-first-board>:8079/ sid main
-```
-
-Update the database of available packages and install the hypervisorconfig package before installing skywire
-
-```
-apt update
-apt install hypervisorkey
-apt install skywire
-```
-
-**Your configuration should be complete at this point.**
-
-View the hypervisor's web interface to make sure everything worked.
-
+Step 5 has been removed pending revisions
 
 ### 6) Updating your system and the skywire installation.
 (as root)
