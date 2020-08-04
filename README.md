@@ -61,7 +61,7 @@ These files **must** be at the following paths for the included skywire-visor an
 /etc/skywire-visor.json
 ```
 
-Please follow the documentation [in the readme of skywire-mainnet](https://github.com/skycoinproject/skywire)
+Please follow the documentation [in the readme of skywire-mainnet](https://github.com/skycoinproject/skywire-mainnet)
 or ask in [the skywire telegram channel](https://t.me/skywire)
 
 When you have completed the configuration, start the hypervisor and/or visor systemd service, then view the hypervisor's web interface to make sure everything worked.
