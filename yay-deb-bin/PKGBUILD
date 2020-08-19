@@ -1,0 +1,76 @@
+# Maintainer: Moses Narrow <t.me/moe_narrow>
+#Using yay-git for source package
+pkgname="yay-deb-bin"
+_pkgname="yay"
+_pkgname1="yay-git"
+pkgver="10.0.4"
+pkgrel=1
+pkgdesc="Yet another yogurt. Pacman wrapper and AUR helper written in go. Binary package for debian."
+arch=('x86_64')
+_arch=$arch
+_debarch=
+url="https://github.com/endeavouros-team/"
+license=('')
+options=('!strip' '!emptydirs')
+depends=('pacman')
+_debdeps=$depends
+#must have dpkg to build .deb
+makedepends=('dpkg')
+conflicts=('yay')
+provides=('yay')
+_ext="zst"
+[ ! -f *"$_ext" ] && cp ~/.cache/${_pkgname}/${_pkgname}/${_pkgname}-${pkgver}-${pkgrel}-${_arch}.pkg.tar.${_ext} .
+source=("${_pkgname}-${pkgver}-${pkgrel}-${_arch}.pkg.tar.${_ext}")
+#for some reaonthis one doesn't extract..
+#source=("$url/repo/blob/master/endeavouros/${arch}/${_pkgname}-${pkgver}-${pkgrel}-${arch}.pkg.tar.${_ext}")
+#"$url/repo/blob/master/endeavouros/x86_64/yay-10.0.4-1-x86_64.pkg.tar.${_ext}.sig")
+sha256sums=("SKIP")
+#"SKIP")
+
+[[ "$arch" == *"x86_64"* ]] && _debarch="amd64"
+[[ "$arch" == *"aarch64"* ]] && _debarch="arm64"
+[[ "$arch" == *"armhf"* ]] && _debarch="armhf"
+[[ "$arch" == *"armel"* ]] && _debarch="armel"
+
+
+build() {
+
+cd $srcdir
+#create control file for the debian package
+echo "Package: ${_pkgname}" > ${srcdir}/control
+echo "Version: ${pkgver}-${pkgrel}" >> ${srcdir}/control
+echo "Priority: optional" >> ${srcdir}/control
+echo "Section: web" >> ${srcdir}/control
+echo "Architecture: ${_debarch}" >> ${srcdir}/control
+echo "Depends: ${_debdeps}" >> ${srcdir}/control
+echo "Maintainer: Skyfleet" >> ${srcdir}/control
+echo "Description: ${pkgdesc}" >> ${srcdir}/control
+
+}
+package() {
+  #set up to create a .deb package - this becomes the full package name sans extension
+_debpkgdir=${_pkgname}-${pkgver}-${pkgrel}-${_debarch}
+#create as a directory inside the pkg dir
+_pkgdir=${pkgdir}/${_debpkgdir}
+mkdir -p ${_pkgdir}
+#go into the debpkgdir to construct the package
+cd $_pkgdir
+#extract the arch package here
+tar xf ${srcdir}/*.${_ext}
+#remove metadata files
+rm .BUILDINFO .MTREE .PKGINFO
+#install the control file
+install -Dm755 ${srcdir}/control ${_pkgdir}/DEBIAN/control
+#return to the pkg dir to package this
+cd $pkgdir
+#we use dpkg to build the .deb here
+dpkg-deb --build ${_debpkgdir}
+#move it out o the pkg dir
+mv *.deb ../../
+#exit so the arch package doesn't get built
+exit
+#What if anything would makepkg have done if the package function had not exited?
+#besides compression, I'm not sure.
+#Same can be achieved without the premature `exit` by running:
+#`makepkg --noarchive`
+}

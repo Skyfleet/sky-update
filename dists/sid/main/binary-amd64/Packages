@@ -1,3 +1,59 @@
+Package: archlinux-keyring
+Version: 20200817-1
+Architecture: amd64
+Depends: 
+Maintainer: Skyfleet
+Priority: optional
+Section: web
+Filename: pool/main/a/archlinux-keyring/archlinux-keyring_20200817-1_amd64.deb
+Size: 954996
+SHA256: f6099e2a7d241abff52f89dd1be51d1e150e823fff07026dd5ff10bb19bc6309
+SHA1: 521949b09ab00de98f885429f74ddeb00a4ecf89
+MD5sum: 3830a00b1240b4b02e7aad41b6819749
+Description: Pacman is the official Archlinux Package Manager. Binary version packaged for debian.
+
+Package: pacman
+Version: 5.2.2-1
+Architecture: amd64
+Depends: bash
+Maintainer: Skyfleet
+Priority: optional
+Section: web
+Filename: pool/main/p/pacman/pacman_5.2.2-1_amd64.deb
+Size: 742484
+SHA256: 47971c586c5b84c392b4329472df0da37a1040fc82ed3c6fd8058499590f0298
+SHA1: c6d32fb57d329b9db9b401904b53d2c8b2df8e09
+MD5sum: c7d112e007f25c45880d902472fa3ebc
+Description: Pacman is the official Archlinux Package Manager. Binary version packaged for debian.
+
+Package: pacman-mirrorlist
+Version: 20200801-1
+Architecture: amd64
+Depends: bash
+Maintainer: Skyfleet
+Priority: optional
+Section: web
+Filename: pool/main/p/pacman-mirrorlist/pacman-mirrorlist_20200801-1_amd64.deb
+Size: 5104
+SHA256: 15a654c13c87daaac638934dbd6908e9daa571612adf0d5856783443f082cd6e
+SHA1: d235112b786e3a805472f47b41a0873180ed8054
+MD5sum: f00e87cf1c54a171268847777d004d7e
+Description: Mirrorlist for pacman. Binary version packaged for debian.
+
+Package: pacman-static
+Version: 5.2.2-2
+Architecture: amd64
+Depends: pacman
+Maintainer: Skyfleet
+Priority: optional
+Section: web
+Filename: pool/main/p/pacman-static/pacman-static_5.2.2-2_amd64.deb
+Size: 5421420
+SHA256: 698953de36362ba2a8d4fea70a0ab634d8ef04f98cd1740a50fc4c2a1fbca5cd
+SHA1: bb1095c43ac2fbb36f8d0c92eba9b1ea469d0d2a
+MD5sum: d959aad838004dd4b5adfefe996ea2ef
+Description: Statically compiled Pacman repackaged for debian - binary package (development version)
+
 Package: skywire
 Version: 0.2.3-4
 Architecture: amd64
@@ -11,4 +67,18 @@ SHA256: b49e903ada8259c2cc51b3f6ba6b7e0c7583c80a3a54280a3c1c54729c991891
 SHA1: 2c949445205199b03b511260618576b5f841797f
 MD5sum: 72775435ad5fdb3f2aa8ed95804d48f0
 Description: Skywire: Building a New Internet. Skycoin.com
+
+Package: yay
+Version: 10.0.4-1
+Architecture: amd64
+Depends: pacman
+Maintainer: Skyfleet
+Priority: optional
+Section: web
+Filename: pool/main/y/yay/yay_10.0.4-1_amd64.deb
+Size: 2508868
+SHA256: 3b3a81cc24887f8e7846489c4d18528c2cc88d10812ffdf07ae3419e7621d3c0
+SHA1: 5f1e286c10bf287e32c42602c97adf697209040e
+MD5sum: b1bb3bc49562a9048b9a35c8f4418911
+Description: Yet another yogurt. Pacman wrapper and AUR helper written in go. Binary package for debian.
 
